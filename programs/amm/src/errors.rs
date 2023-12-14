@@ -17,6 +17,8 @@ pub enum AmmError {
     OfferExpired,
     #[msg("Zero balance")]
     ZeroBalance,
+    #[msg("Slippage Exceeded")]
+    SlippageExceeded,
 }
 
 impl From<CurveError> for AmmError {
