@@ -1,4 +1,5 @@
 use anchor_lang::error_code;
+use constant_product_curve::CurveError;
 
 #[error_code]
 pub enum AmmError {
@@ -8,6 +9,14 @@ pub enum AmmError {
     InvalidFee,
     #[msg("Invalid authority")]
     InvalidAuthority,
+    #[msg("No authority set")]
+    NoAuthoritySet,
+    #[msg("Pool is locked")]
+    PoolLocked,
+    #[msg("Offer expired")]
+    OfferExpired,
+    #[msg("Zero balance")]
+    ZeroBalance,
 }
 
 impl From<CurveError> for AmmError {

@@ -33,6 +33,7 @@ pub struct Initialize<'info> {
         associated_token::authority = auth,
     )]
     pub vault_y: InterfaceAccount<'info, TokenAccount>,
+    /// CHECK: This account is only used for signing purposes
     #[account(seeds = [b"auth"], bump)]
     pub auth: UncheckedAccount<'info>,
     #[account(
@@ -69,6 +70,8 @@ impl<'info> Initialize<'info> {
                 config_bump: bumps.config,
                 lp_bump: bumps.lp_mint,
             });
+
+            Clock::get()?.unix_timestamp;
 
         Ok(())
     }
