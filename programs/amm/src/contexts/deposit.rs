@@ -83,7 +83,7 @@ impl<'info> Deposit<'info> {
         assert_not_expired!(expiration);
         assert_non_zero!([amount, max_x, max_y]);
 
-        let (x, y) = match self.mint_lp.supply == 0 && self.vault_x.amount == 0 && self.user_vault_y.amount == 0 {
+        let (x, y) = match self.mint_lp.supply == 0 && self.vault_x.amount == 0 && self.vault_y.amount == 0 {
             true => (max_x, max_y),
             false => {
                 let amounts = ConstantProduct::xy_deposit_amounts_from_l(
