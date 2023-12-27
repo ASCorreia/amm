@@ -34,7 +34,7 @@ pub struct Deposit<'info> {
     #[account(
         mut,
         associated_token::mint = mint_x,
-        associated_token::authority = auth,
+        associated_token::authority = user,
     )]
     pub user_vault_x: InterfaceAccount<'info, TokenAccount>,
     #[account(
